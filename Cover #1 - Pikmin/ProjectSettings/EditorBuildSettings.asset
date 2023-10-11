@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/(PART I) Cover #1 - Pikmin.unity
     guid: 91169d8d24c624250ae006a74c4a5e3d
+  - enabled: 1
+    path: Assets/Scenes/(PART II) Cover #1 - Pikmin.unity
+    guid: 79946d39b3b2645afb21e81a969dcbe1
   m_configObjects: {}

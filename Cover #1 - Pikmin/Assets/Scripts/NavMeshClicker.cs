@@ -1,8 +1,7 @@
 using Cinemachine;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditorInternal.VersionControl.ListControl;
+//using static UnityEditorInternal.VersionControl.ListControl;
 
 public class NewNavMeshClicker : MonoBehaviour
 {
