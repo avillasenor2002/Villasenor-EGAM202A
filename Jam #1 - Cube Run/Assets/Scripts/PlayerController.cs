@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             //its jumpin time
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            canJump = false;
         }
 
         if (endgame == true)
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            canJump = false;
+            
             //runPart.SetActive(false);
             landPart.SetActive(false);
         }

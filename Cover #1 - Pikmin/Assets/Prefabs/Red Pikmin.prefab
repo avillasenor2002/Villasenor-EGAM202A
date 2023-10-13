@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5591540598014654419}
   - component: {fileID: 1739702329915873332}
   - component: {fileID: 4123017206556108439}
+  - component: {fileID: -1260915737860571011}
   m_Layer: 0
   m_Name: Red Pikmin
   m_TagString: Untagged
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2366881737681137562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5a89dbdd1247499394e47fdc8c9d6d1, type: 3}
   m_Name: 
@@ -156,3 +157,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newagent: {fileID: 5591540598014654419}
+--- !u!114 &-1260915737860571011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366881737681137562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a37b52261210a44d99c564e0cbac234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  currentState: 0
+  targetTeasure: {fileID: 0}

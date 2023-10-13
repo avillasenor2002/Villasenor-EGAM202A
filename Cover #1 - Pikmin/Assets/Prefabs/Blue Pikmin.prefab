@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5977271542730569579}
   - component: {fileID: 8608653133423370695}
   - component: {fileID: 4772616498891616424}
+  - component: {fileID: -3626515519451436315}
   m_Layer: 0
   m_Name: Blue Pikmin
   m_TagString: Untagged
@@ -142,3 +143,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newagent: {fileID: 8608653133423370695}
+--- !u!114 &-3626515519451436315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671452252934686951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a37b52261210a44d99c564e0cbac234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  currentState: 0
+  targetTeasure: {fileID: 0}

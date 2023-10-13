@@ -3,6 +3,7 @@ using UnityEngine;
 public class ClickManager : MonoBehaviour
 {
     public Camera gameCamera;
+    public GameObject selector; 
 
     void FixedUpdate()
     {
@@ -19,6 +20,7 @@ public class ClickManager : MonoBehaviour
             if (clickableObject != null)
             {
                 clickableObject.Clicked();
+                selector.transform.position = clickableObject.transform.position;
             }
         }
 
