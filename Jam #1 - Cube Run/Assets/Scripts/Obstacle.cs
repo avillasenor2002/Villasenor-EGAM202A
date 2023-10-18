@@ -5,12 +5,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public float speed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public float lowspeed;
+    //public PlayerController scorescript;
 
     // Update is called once per frame
     void Update()
