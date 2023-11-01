@@ -12,11 +12,17 @@ public class Cast : MonoBehaviour
     bool statechange;
     public bool lureUp;
     public bool lureDown;
+    public bool lureFinal;
     public Fish fish;
+    public Fish fish2;
+    public Fish fish3;
     public GameObject text;
     public GameObject Particle;
     public GameObject SmallParticle;
     public RapidEnd End;
+    public FaceTheDangLure FishRotate;
+    public FaceTheDangLure FishRotate2;
+    public FaceTheDangLure FishRotate3;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +42,15 @@ public class Cast : MonoBehaviour
             text.SetActive(false);
         }
 
-        if (lureUp == true && lureDown == false)
+        if (lureUp == true && lureDown == false && lureFinal == false)
         {
             this.transform.position = new Vector3(-0.56f, 0.24f, -9.82001f);
         }
-        else if (lureUp == false && lureDown == true)
+        if (lureUp == false && lureDown == true && lureFinal == false)
+        {
+            this.transform.position = new Vector3(-0.56f, 0.13f, -9.82001f);
+        }
+        else if (lureUp == false && lureDown == false && lureFinal == true)
         {
             this.transform.position = new Vector3(-0.56f, -0.1700001f, -9.82001f);
         }
@@ -53,7 +63,12 @@ public class Cast : MonoBehaviour
             statechange = true;
             lureUp = true;
             fish.currentState = TreasureState.Moving;
+            fish2.currentState = TreasureState.Moving;
+            fish3.currentState = TreasureState.Moving;
             End.starting = false;
+            FishRotate.goTime = true;
+            FishRotate2.goTime = true;
+            FishRotate3.goTime = true;
         }
     }
 }

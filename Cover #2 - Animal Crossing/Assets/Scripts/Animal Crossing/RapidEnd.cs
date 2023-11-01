@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static Fish;
@@ -11,20 +12,31 @@ public class RapidEnd : MonoBehaviour
     public enum ClickState
     {
         Idle,
-        Action
+        Action,
+        Finish
     }
 
     public GameObject failTextEarly;
     public GameObject failTextLate;
-    public GameObject VictoryState;
+    public GameObject VictoryAnchovy;
+    public GameObject VictorySeaBass;
+    public GameObject VictorySturgeon;
     public Cast cast;
+    public Spawnscipt Spawner;
     public GameObject fish;
-    public GameObject caughtfish;
+    public GameObject fish2;
+    public GameObject fish3;
+    public GameObject caughtfishAnchovy;
+    public GameObject caughtfishSeaBass;
+    public GameObject caughtfishSturgeon;
     public GameObject fishingrod;
-    private float waitTime = 3.0f;
+    public GameObject SplashPart;
+    public float waitTime;
+    private float splashTime = 4.0f;
     private float timer = 0.0f;
     public bool starting;
     public bool Done;
+    public bool Caught;
 
     public CinemachineVirtualCamera MainGame;
     public CinemachineVirtualCamera Victory;
@@ -48,6 +60,9 @@ public class RapidEnd : MonoBehaviour
             case ClickState.Action:
                 UpdateAction();
                 break;
+            case ClickState.Finish:
+                UpdateAction();
+                break;
         }
     }
 
@@ -65,20 +80,78 @@ public class RapidEnd : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && timer <= waitTime)
+        if (Input.GetKeyDown(KeyCode.Space) && timer <= waitTime && Done == false)
         {
-            VictoryState.SetActive(true);
-            fish.SetActive(false);
-            caughtfish.SetActive(true);
-            fishingrod.SetActive(false);
-            Victory.Priority = 100;
-            MainGame.Priority = 0;
             Done = true;
+            Caught = true;
+            currentState = ClickState.Finish;
         }
         else if (timer > waitTime && Done == false)
         {
             failTextLate.SetActive(true);
             fish.SetActive(false);
+            fish2.SetActive(false);
+            fish3.SetActive(false);
+        }
+
+        if (Done == true && Caught == true)
+        {
+            timer += Time.deltaTime;
+
+            if (timer <= splashTime)
+            {
+                SplashPart.SetActive(true);
+                cast.lureDown = true;
+            }
+            else if (timer > splashTime)
+            {
+                fish.SetActive(false);
+                fish2.SetActive(false);
+                fish3.SetActive(false);
+                
+                fishingrod.SetActive(false);
+                cast.gameObject.SetActive(false);
+                Victory.Priority = 100;
+                MainGame.Priority = 0;
+                
+                if (Spawner.fishSpwn <= 3)
+                {
+                    VictoryAnchovy.SetActive(true);
+                    caughtfishAnchovy.SetActive(true);
+                }
+                else if (Spawner.fishSpwn > 3 && Spawner.fishSpwn <= 6)
+                {
+                    VictorySeaBass.SetActive(true);
+                    caughtfishSeaBass.SetActive(true);
+                }
+                else if (Spawner.fishSpwn > 6)
+                {
+                    VictorySturgeon.SetActive(true);
+                    caughtfishSturgeon.SetActive(true);
+                }
+            }
+        }
+    }
+
+    void UpdateFinish()
+    {
+        timer += Time.deltaTime;
+
+        if (timer <= splashTime)
+        {
+            SplashPart .SetActive(true);
+            cast.lureDown = true;
+        }
+        else if (timer > splashTime)
+        {
+            //VictoryState.SetActive(true);
+            fish.SetActive(false);
+            fish2.SetActive(false);
+            fish3.SetActive(false);
+            //caughtfish.SetActive(true);
+            fishingrod.SetActive(false);
+            Victory.Priority = 100;
+            MainGame.Priority = 0;
         }
     }
 }

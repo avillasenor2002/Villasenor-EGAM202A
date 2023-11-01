@@ -10,6 +10,8 @@ public class Fish : MonoBehaviour
     public NavMeshAgent agent;
     public Cast cast;
     public RapidEnd end;
+    public int bitelow;
+    public int bitehigh;
 
     // Treasure state
     public TreasureState currentState;
@@ -94,6 +96,11 @@ public class Fish : MonoBehaviour
     {
         agent.isStopped = false;
         agent.SetDestination(lurePosition.position);
+
+        if (end.Caught == true)
+        {
+            end.currentState = ClickState.Finish;
+        }
         
     }
 
@@ -102,17 +109,18 @@ public class Fish : MonoBehaviour
         if (collision.gameObject.tag == "Lure")
         {
             statechange = true;
-            finalbite = finalbite - Random.Range(1, 4);
+            finalbite = finalbite - Random.Range(bitelow, bitehigh);
             cast.lureUp = false;
-            cast.lureDown = true;
             if (finalbite <= 0)
             {
                 cast.Particle.SetActive(true);
                 end.currentState = ClickState.Action;
+                cast.lureFinal = true;
             }
             else
             {
                 cast.SmallParticle.SetActive(true);
+                cast.lureDown = true;
             }
         }
 
@@ -128,6 +136,7 @@ public class Fish : MonoBehaviour
         {
             cast.lureUp = true;
             cast.lureDown = false;
+            cast.lureFinal = false;
             cast.SmallParticle.SetActive(false);
         }
     }
