@@ -21,6 +21,7 @@ public class LineForce : MonoBehaviour
     public GameObject GameUI;
     public TextMeshProUGUI StarText;
     public int starcollect = 0;
+    public ParticleSystem system;
 
     private void Awake()
     {
@@ -132,6 +133,14 @@ public class LineForce : MonoBehaviour
         else
         {
             return null;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            system.Play();
         }
     }
 }

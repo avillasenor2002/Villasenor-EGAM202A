@@ -8,6 +8,7 @@ public class ScreenNuke : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        SceneManager.LoadScene("Bowling Game");
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 }

@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Bowling Game.unity
+    path: Assets/Scenes/Main Menu.unity
+    guid: 124694391d8fd11489d5348bcf75bf92
+  - enabled: 1
+    path: Assets/Scenes/Level #1.unity
     guid: b38bdbe066ca40441ad11f1b0e845b4a
+  - enabled: 1
+    path: Assets/Scenes/Level #2.unity
+    guid: ac1ac0ee3d7d36743988feb7adb8dc60
+  - enabled: 1
+    path: Assets/Scenes/Level #3.unity
+    guid: b818ebcd9cc3de44481f062b8a47a56a
+  - enabled: 1
+    path: Assets/Scenes/Level #4.unity
+    guid: c07cb241237d87541b0e69ab371702c7
+  - enabled: 1
+    path: Assets/Scenes/Level #5.unity
+    guid: 49a182ad4e9ec6f4a8ef2b8a5fe83f32
+  - enabled: 1
+    path: Assets/Scenes/Level #7.unity
+    guid: 84d745e86d2869c48b26b9b4db158fe7
+  - enabled: 1
+    path: Assets/Scenes/Level #8.unity
+    guid: 8de655fa40503f841be706bfef93466f
+  - enabled: 1
+    path: Assets/Scenes/Level #9.unity
+    guid: 6c2c2b8e02762a34b8699cabee85d28b
   m_configObjects: {}

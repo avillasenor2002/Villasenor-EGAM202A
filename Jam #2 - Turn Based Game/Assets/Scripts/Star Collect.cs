@@ -11,7 +11,9 @@ public class StarCollect : MonoBehaviour
     public bool isCollect;
     public bool initCollect;
     public GameObject Object;
+    public GameObject Shadow;
     public LineForce player;
+    public ParticleSystem system;
     
 
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class StarCollect : MonoBehaviour
         if (isCollect == true)
         {
             Object.GetComponent<MeshRenderer>().material = CollectedStar;
+            Shadow.GetComponent<MeshRenderer>().material = CollectedStar;
         }
     }
 
@@ -40,6 +43,7 @@ public class StarCollect : MonoBehaviour
             {
                 player.starcollect = player.starcollect + 1;
                 initCollect= true;
+                system.Play();
             }
         }
     }

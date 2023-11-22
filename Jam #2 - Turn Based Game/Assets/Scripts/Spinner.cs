@@ -18,7 +18,7 @@ public class Spinner : MonoBehaviour
     void FixedUpdate()
     {
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        this.transform.Rotate(0.0f, 1f, 0.0f, Space.Self);
+        this.transform.Rotate(0.0f, speed, 0.0f, Space.Self);
         //speed = speed+Time.deltaTime;
         //this.transform.Rotate(xAngle, yAngle, zAngle, Space.Self);
         //xAngle = xAngle + speed;
